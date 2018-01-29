@@ -7,6 +7,8 @@ import { CookieStorage } from 'cookie-storage'
 
 const socket = io('http://localhost:3030', {transports: ['websocket']})
 
+CookieStorage.prototype._setCookie = function () {}
+
 const feathersClient = feathers()
   .configure(socketio(socket))
   .configure(auth({ storage: new CookieStorage() }))

@@ -1,5 +1,8 @@
 module.exports = {
   srcDir: 'client/',
+  router: {
+    middleware: ['auth']
+  },
   /*
   ** Headers of the page
   */
@@ -22,7 +25,6 @@ module.exports = {
   ** Add axios globally
   */
   build: {
-    vendor: ['axios'],
     /*
     ** Run ESLINT on save
     */

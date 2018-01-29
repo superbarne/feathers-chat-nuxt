@@ -3,13 +3,13 @@
     <main class="chat flex flex-column flex-1 clear">
       <single-message v-for="message in messages" :key="message._id" :message="message" v-cloak />
     </main>
-    <ComposeMessage :createMessage="createMessage" />
+    <MessageComposer :createMessage="createMessage" />
   </div>
 </template>
 
 <script>
-import ComposeMessage from './Composer.vue'
 import SingleMessage from './Message.vue'
+import MessageComposer from './MessageComposer.vue'
 
 export default {
   name: 'message-list',
@@ -38,7 +38,7 @@ export default {
     }
   },
   components: {
-    ComposeMessage,
+    MessageComposer,
     SingleMessage
   }
 }

@@ -53,6 +53,7 @@ export default {
   },
   created () {
     if (!this.user) {
+      console.log(this.user)
       return this.$router.replace({name: 'login'})
     }
     // Query users from Feathers

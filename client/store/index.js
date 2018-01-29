@@ -7,25 +7,25 @@ const { service, auth } = feathersVuex(feathersClient, { idField: '_id' })
 export default function () {
   return new Vuex.Store({
     state: {},
-    mutations: {
-      increment (state) {
-        state.counter++
-      }
-    },
     actions: {
-      nuxtServerInit ({ commit, dispatch }, { req }) {
-        return initAuth({
+      async nuxtServerInit ({ commit, dispatch, state }, { req }) {
+        await initAuth({
           commit,
           dispatch,
           req,
           moduleName: 'auth',
           cookieName: 'feathers-jwt'
         })
+
+        if (state.auth.accessToken) {
+          let { accessToken } = state.auth
+          await dispatch('auth/authenticate', { strategy: 'jwt', accessToken })
+        }
       }
     },
     plugins: [
-      service('users'),
       service('messages'),
+      service('users'),
       auth({
         userService: 'users',
         state: {
