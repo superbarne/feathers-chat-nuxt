@@ -2,19 +2,19 @@
   <aside class="sidebar col col-3 flex flex-column flex-space-between">
     <header class="flex flex-row flex-center">
       <h4 class="font-300 text-center">
-        <span class="font-600 online-count" v-cloak>{{ users.length }}</span> {{plural}}
+        <span class="font-600 online-count">{{ users.length }}</span> {{plural}}
       </h4>
     </header>
     <ul class="flex flex-column flex-1 list-unstyled user-list">
-      <li v-for="(user, index) in users" track-by="index">
+      <li v-for="user in users" :key="user.id">
         <a class="block relative" href="javascript://">
-          <img :src="user.avatar || dummyUser.avatar" alt="" class="avatar">
-          <span class="absolute username">{{ user.email || dummyUser.email }}</span>
+          <img :src="user.avatar" alt="" class="avatar">
+          <span class="absolute username">{{ user.email }}</span>
         </a>
       </li>
     </ul>
     <footer class="flex flex-row flex-center">
-      <a href="javascript://" class="logout button button-primary" @click="logout">Sign Out</a>
+      <button class="logout button button-primary" @click="logout">Sign Out</button>
     </footer>
   </aside>
 </template>
