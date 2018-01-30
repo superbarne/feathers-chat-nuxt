@@ -21,6 +21,12 @@ export default function () {
           let { accessToken } = state.auth
           await dispatch('auth/authenticate', { strategy: 'jwt', accessToken })
         }
+      },
+      async nuxtClientInit ({ commit, dispatch, state }) {
+        if (state.auth.accessToken) {
+          let { accessToken } = state.auth
+          await dispatch('auth/authenticate', { strategy: 'jwt', accessToken })
+        }
       }
     },
     plugins: [
