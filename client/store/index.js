@@ -37,7 +37,8 @@ export default function () {
         state: {
           publicPages: [
             'login',
-            'signup'
+            'signup',
+            'index'
           ]
         }
       })

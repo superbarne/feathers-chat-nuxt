@@ -1,4 +1,3 @@
-import 'babel-polyfill'
 import feathers from '@feathersjs/client'
 import socketio from '@feathersjs/socketio-client'
 import auth from '@feathersjs/authentication-client'
