@@ -1,3 +1,5 @@
+const BabiliPlugin = require('babili-webpack-plugin')
+
 module.exports = {
   srcDir: 'client/',
   router: {
@@ -30,6 +32,11 @@ module.exports = {
     ** Run ESLINT on save
     */
     extend (config, ctx) {
+      if (!ctx.isDev) {
+        config.plugins = config.plugins.filter((plugin) => plugin.constructor.name !== 'UglifyJsPlugin')
+        config.plugins.push(new BabiliPlugin())
+      }
+
       if (ctx.isClient) {
         config.module.rules.push({
           enforce: 'pre',
