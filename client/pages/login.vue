@@ -1,36 +1,29 @@
 <template>
-<main class="login container">
-  <div class="row">
-    <div class="col-12 col-6-tablet push-3-tablet text-center">
-      <h1 class="font-100">Welcome Back</h1>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-12 col-6-tablet push-3-tablet col-4-desktop push-4-desktop">
-
+  <form class="form-signin" method="post" @submit.prevent="onSubmit(email, password)">
+    <div class="text-center mb-4">
+      <img class="mb-4" src="http://feathersjs.com/img/feathers-logo-wide.png" alt="" width="100%">
       <div class="error" v-if="error">
         {{error.message}}
-        <a class="close" href="javascript://" @click.prevent="dismissError">dismiss</a>
+        <button class="close" @click.prevent="dismissError">dismiss</button>
       </div>
-
-      <form class="form" method="post" @submit.prevent="onSubmit(email, password)">
-        <fieldset>
-          <input class="block" type="email" name="email" placeholder="email" v-model="email">
-        </fieldset>
-
-        <fieldset>
-          <input class="block" type="password" name="password" placeholder="password" v-model="password">
-        </fieldset>
-
-        <button type="submit" class="button button-primary block login">
-          Login
-        </button>
-
-        <router-link as="button" :to="{name: 'index'}" class="button button-secondary block">Back</router-link>
-      </form>
     </div>
-  </div>
-</main>
+    
+    <div class="form-label-group">
+      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="" v-model="email">
+      <label for="inputEmail">Email address</label>
+    </div>
+
+    <div class="form-label-group">
+      <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="" v-model="password">
+      <label for="inputPassword">Password</label>
+    </div>
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+
+    <div class="text-center p-3">
+      <router-link as="button" :to="{name: 'index'}" class="button button-secondary block">Back</router-link>
+    </div>
+  </form>
 </template>
 
 <script>
@@ -73,3 +66,88 @@ export default {
   }
 }
 </script>
+
+<style>
+  :root {
+    --input-padding-x: .75rem;
+    --input-padding-y: .75rem;
+  }
+
+  body {
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: flex;
+    -ms-flex-align: center;
+    -ms-flex-pack: center;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #f5f5f5;
+  }
+
+  .form-signin {
+    width: 100%;
+    max-width: 420px;
+    padding: 15px;
+    margin: 0 auto;
+  }
+
+  .form-label-group {
+    position: relative;
+    margin-bottom: 1rem;
+  }
+
+  .form-label-group > input,
+  .form-label-group > label {
+    padding: var(--input-padding-y) var(--input-padding-x);
+  }
+
+  .form-label-group > label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    margin-bottom: 0; /* Override default `<label>` margin */
+    line-height: 1.5;
+    color: #495057;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    transition: all .1s ease-in-out;
+  }
+
+  .form-label-group input::-webkit-input-placeholder {
+    color: transparent;
+  }
+
+  .form-label-group input:-ms-input-placeholder {
+    color: transparent;
+  }
+
+  .form-label-group input::-ms-input-placeholder {
+    color: transparent;
+  }
+
+  .form-label-group input::-moz-placeholder {
+    color: transparent;
+  }
+
+  .form-label-group input::placeholder {
+    color: transparent;
+  }
+
+  .form-label-group input:not(:placeholder-shown) {
+    padding-top: calc(var(--input-padding-y) + var(--input-padding-y) * (2 / 3));
+    padding-bottom: calc(var(--input-padding-y) / 3);
+  }
+
+  .form-label-group input:not(:placeholder-shown) ~ label {
+    padding-top: calc(var(--input-padding-y) / 3);
+    padding-bottom: calc(var(--input-padding-y) / 3);
+    font-size: 12px;
+    color: #777;
+  }
+</style>

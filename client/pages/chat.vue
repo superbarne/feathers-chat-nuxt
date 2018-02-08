@@ -1,19 +1,20 @@
 <template>
-  <main id="chat" class="flex flex-column">
-    <header class="title-bar flex flex-row flex-center">
-      <div class="title-wrapper block center-element">
-        <img class="logo" src="http://feathersjs.com/img/feathers-logo-wide.png" alt="Feathers Logo">
-        <span class="title">Chat</span>
+  <main id="chat">
+    <nav class="navbar navbar-light bg-light">
+      <a class="navbar-brand" href="#">
+        <img src="http://feathersjs.com/img/feathers-logo-wide.png" height="30" alt="Feathers Logo">
+      </a>
+    </nav>
+    <div class="container-fluid">
+      <div class="row" v-if="user">
+
+        <user-list class="col-3" :users="users"
+          :logout="logout" />
+
+        <message-list class="col-9" :messages="messages.data"
+          :findMessages="findUsers"
+          :createMessage="createMessage" />
       </div>
-    </header>
-    <div class="flex flex-row flex-1 clear" v-if="user">
-
-      <user-list :users="users"
-        :logout="logout" />
-
-      <message-list :messages="messages.data"
-        :findMessages="findUsers"
-        :createMessage="createMessage" />
     </div>
   </main>
 </template>

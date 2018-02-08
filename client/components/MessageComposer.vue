@@ -1,6 +1,6 @@
 <template>
-  <form class="flex flex-row flex-space-between" id="send-message" v-on:submit.prevent>
-    <input type="text" name="text" class="flex flex-1" v-model="newMessage">
+  <form id="send-message" v-on:submit.prevent>
+    <input type="text" name="text" v-model="newMessage">
     <button class="button-primary" type="submit" @click="addMessage">Send</button>
   </form>
 </template>
