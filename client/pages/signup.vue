@@ -19,7 +19,7 @@
       <label for="inputPassword">Password</label>
     </div>
 
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">signup</button>
 
     <div class="text-center p-3">
       <router-link as="button" :to="{name: 'index'}" class="button button-secondary block">Back</router-link>

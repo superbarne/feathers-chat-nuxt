@@ -4,7 +4,7 @@ import auth from '@feathersjs/authentication-client'
 import io from 'socket.io-client'
 import { CookieStorage } from 'cookie-storage'
 
-const socket = io('http://localhost:3030', {transports: ['websocket']})
+const socket = io('http://localhost:3000', {transports: ['websocket']})
 
 if (!process.browser) {
   CookieStorage.prototype._setCookie = function () {}
