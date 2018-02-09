@@ -39,6 +39,11 @@ export default function () {
             'login',
             'signup',
             'index'
+          ],
+          fobiddenPagesOnAuth: [
+            'login',
+            'signup',
+            'index'
           ]
         }
       })
