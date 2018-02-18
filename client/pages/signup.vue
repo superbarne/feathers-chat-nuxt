@@ -1,30 +1,32 @@
 <template>
-  <form class="form-signup" method="post" @submit.prevent="onSubmit(email, password)">
-    <div class="text-center mb-4">
-      <img class="mb-4" src="http://feathersjs.com/img/feathers-logo-wide.png" alt="" width="100%">
-      <h3>Create an Account</h3>
-      <div class="error" v-if="error">
-        {{error.message}}
-        <button class="close" @click.prevent="dismissError">dismiss</button>
+  <div class="signup-wrapper">
+    <form class="form-signup" method="post" @submit.prevent="onSubmit(email, password)">
+      <div class="text-center mb-4">
+        <img class="mb-4" src="http://feathersjs.com/img/feathers-logo-wide.png" alt="" width="100%">
+        <h3>Create an Account</h3>
+        <div class="error" v-if="error">
+          {{error.message}}
+          <button class="close" @click.prevent="dismissError">dismiss</button>
+        </div>
       </div>
-    </div>
-    
-    <div class="form-label-group">
-      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="" v-model="email">
-      <label for="inputEmail">Email address</label>
-    </div>
+      
+      <div class="form-label-group">
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="" v-model="email">
+        <label for="inputEmail">Email address</label>
+      </div>
 
-    <div class="form-label-group">
-      <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="" v-model="password">
-      <label for="inputPassword">Password</label>
-    </div>
+      <div class="form-label-group">
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="" v-model="password">
+        <label for="inputPassword">Password</label>
+      </div>
 
-    <button class="btn btn-lg btn-primary btn-block" type="submit">signup</button>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">signup</button>
 
-    <div class="text-center p-3">
-      <router-link as="button" :to="{name: 'index'}" class="button button-secondary block">Back</router-link>
-    </div>
-  </form>
+      <div class="text-center p-3">
+        <router-link as="button" :to="{name: 'index'}" class="button button-secondary block">Back</router-link>
+      </div>
+    </form>
+  </div>
 </template>
 <script>
 import { mapMutations, mapActions } from 'vuex'
@@ -78,7 +80,8 @@ export default {
     --input-padding-y: .75rem;
   }
 
-  body {
+  .signup-wrapper {
+    height: 100%;
     display: -ms-flexbox;
     display: -webkit-box;
     display: flex;

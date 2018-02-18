@@ -1,0 +1,3 @@
+```js
+<message-composer/>
+```

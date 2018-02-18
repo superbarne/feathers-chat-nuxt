@@ -1,15 +1,16 @@
 <template>
-  <main id="chat">
-    <nav class="navbar navbar-light bg-light">
+  <main id="chat" class="d-flex h-100 flex-column">
+    <nav class="navbar navbar-dark bg-dark">
       <a class="navbar-brand" href="#">
-        <img src="http://feathersjs.com/img/feathers-logo-wide.png" height="30" alt="Feathers Logo">
+        <img src="~assets/img/feathers.png" height="30" alt="Feathers Logo">
       </a>
     </nav>
-    <div class="container-fluid">
-      <div class="row" v-if="user">
-
-        <user-list class="col-3" :users="users"
-          :logout="logout" />
+    <div class="container-fluid col mt-3">
+      <div class="row h-100" v-if="user">
+        <div class="col-3">
+          <user-list :users="users"
+            :logout="logout" />
+        </div>
 
         <message-list class="col-9" :messages="messages.data"
           :findMessages="findUsers"

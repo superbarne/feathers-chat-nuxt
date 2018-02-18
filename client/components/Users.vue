@@ -1,20 +1,16 @@
 <template>
-  <aside class="sidebar">
-    <header>
-      <h4 class="font-300 text-center">
-        <span class="font-600 online-count">{{ users.length }}</span> {{plural}}
-      </h4>
-    </header>
+  <div class="p-3 bg-white rounded box-shadow">
+    <h6 class="border-bottom border-gray pb-2 mb-0"><span class="font-600 online-count">{{ users.length }}</span> {{plural}}</h6>
     <div class="media text-muted pt-3" v-for="user in users" :key="user.id">
-      <img :src="user.avatar" class="mr-2 rounded" style="width: 32px; height: 32px;">
-      <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-        <strong class="d-block text-gray-dark">{{ user.email }}</strong>
-      </p>
+      <img :src="user.avatar" style="width: 32px; height: 32px;" class="mr-2 rounded">
+      <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+        <div class="d-flex justify-content-between align-items-center w-100">
+          <strong class="text-gray-dark">{{ user._id }}</strong>
+        </div>
+        <span class="d-block">{{ user.email }}</span>
+      </div>
     </div>
-    <footer class="flex flex-row flex-center">
-      <button class="logout button button-primary" @click="logout">Sign Out</button>
-    </footer>
-  </aside>
+  </div>
 </template>
 
 <script>

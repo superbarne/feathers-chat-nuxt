@@ -5,7 +5,10 @@ module.exports = {
   router: {
     middleware: ['auth']
   },
-  plugins: [{ src: '~/plugins/nuxt-client-init.js', ssr: false }],
+  plugins: [
+    { src: '~/plugins/nuxt-client-init.js', ssr: false },
+    { src: '~/plugins/moment.js' }
+  ],
   /*
   ** Headers of the page
   */

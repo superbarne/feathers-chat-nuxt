@@ -1,29 +1,33 @@
 <template>
-  <form class="form-signin" method="post" @submit.prevent="onSubmit(email, password)">
-    <div class="text-center mb-4">
-      <img class="mb-4" src="http://feathersjs.com/img/feathers-logo-wide.png" alt="" width="100%">
-      <div class="error" v-if="error">
-        {{error.message}}
-        <button class="close" @click.prevent="dismissError">dismiss</button>
+  <div class="signin-wrapper">
+    <form class="form-signin" method="post" @submit.prevent="onSubmit(email, password)">
+      <div class="text-center mb-4">
+        <img class="mb-4" src="http://feathersjs.com/img/feathers-logo-wide.png" alt="" width="100%">
+        <div class="alert alert-danger" role="alert" v-if="error">
+          {{error.message}}
+          <button @click.prevent="dismissError"  type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
       </div>
-    </div>
-    
-    <div class="form-label-group">
-      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="" v-model="email">
-      <label for="inputEmail">Email address</label>
-    </div>
+      
+      <div class="form-label-group">
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="" v-model="email">
+        <label for="inputEmail">Email address</label>
+      </div>
 
-    <div class="form-label-group">
-      <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="" v-model="password">
-      <label for="inputPassword">Password</label>
-    </div>
+      <div class="form-label-group">
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="" v-model="password">
+        <label for="inputPassword">Password</label>
+      </div>
 
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
 
-    <div class="text-center p-3">
-      <router-link as="button" :to="{name: 'index'}" class="button button-secondary block">Back</router-link>
-    </div>
-  </form>
+      <div class="text-center p-3">
+        <router-link as="button" :to="{name: 'index'}" class="button button-secondary block">Back</router-link>
+      </div>
+    </form>
+  </div>
 </template>
 
 <script>
@@ -73,7 +77,8 @@ export default {
     --input-padding-y: .75rem;
   }
 
-  body {
+  .signin-wrapper {
+    height: 100%;
     display: -ms-flexbox;
     display: -webkit-box;
     display: flex;

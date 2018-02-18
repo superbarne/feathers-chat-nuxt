@@ -1,7 +1,11 @@
 <template>
   <form id="send-message" v-on:submit.prevent>
-    <input type="text" name="text" v-model="newMessage">
-    <button class="button-primary" type="submit" @click="addMessage">Send</button>
+    <div class="input-group mb-3">
+      <input type="text" name="text" class="form-control" v-model="newMessage">
+      <div class="input-group-append">
+        <button type="submit" @click="addMessage" class="btn btn-primary">Send</button>
+      </div>
+    </div>
   </form>
 </template>
 

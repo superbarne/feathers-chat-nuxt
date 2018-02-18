@@ -1,14 +1,14 @@
 <template>
-  <div>
-    <main class="chat">
-      <single-message v-for="message in messages" :key="message._id" :message="message" v-cloak />
+  <div class="d-flex flex-column">
+    <main class="chat col">
+      <message v-for="message in messages" :key="message._id" :message="message" v-cloak />
     </main>
-    <MessageComposer :createMessage="createMessage" />
+    <MessageComposer :createMessage="createMessage" class=""/>
   </div>
 </template>
 
 <script>
-import SingleMessage from './Message.vue'
+import Message from './Message.vue'
 import MessageComposer from './MessageComposer.vue'
 
 export default {
@@ -39,10 +39,13 @@ export default {
   },
   components: {
     MessageComposer,
-    SingleMessage
+    Message
   }
 }
 </script>
 
 <style>
+  .chat {
+    overflow-y: scroll;
+  }
 </style>
